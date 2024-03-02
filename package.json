@@ -9,12 +9,17 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@expo/vector-icons": "^14.0.0",
+    "@react-navigation/bottom-tabs": "^6.5.16",
+    "@react-navigation/native": "^6.1.14",
+    "@react-navigation/native-stack": "^6.9.22",
     "axios": "^1.6.7",
     "expo": "~50.0.6",
     "expo-status-bar": "~1.11.1",
     "react": "18.2.0",
     "react-dom": "^18.2.0",
     "react-native": "0.73.4",
+    "react-native-screens": "^3.29.0",
     "react-native-web": "^0.19.10"
   },
   "devDependencies": {
