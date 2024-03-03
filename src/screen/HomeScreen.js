@@ -11,13 +11,15 @@ import { getSongAll } from "../config/API";
 import Music from "../components/posts/Music";
 import Topbar from "../components/home/Topbar";
 
+
 function HomeScreen() {
   const [song, setSong] = useState([]);
+  const [message, setMessage] = useState('amir');
 
   const getSong = useCallback(async () => {
     const songData = await getSongAll();
-    console.log(songData);
     setSong(songData.data);
+    setMessage(songData.message);
   }, []);
 
   useEffect(() => {
@@ -26,7 +28,7 @@ function HomeScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
-        {/* <Topbar /> */}
+        <Topbar />
         <View style={styles.labelContainer}>
           <View style={styles.label}>
             <Text style={styles.remember}>Remember</Text>
@@ -39,8 +41,28 @@ function HomeScreen() {
           <Text
             style={{
               color: "#fff",
-              fontSize: 22,
-              fontWeight: 700,
+              fontSize: 24,
+              fontWeight: "700",
+              marginTop: 20,
+            }}
+          >
+            Try something else {message}
+          </Text>
+          <FlatList
+            horizontal={true}
+            style={{ marginTop: 10 }}
+            showsHorizontalScrollIndicator={false}
+            data={song}
+            renderItem={({ item }) => <Music music={item} />}
+            keyExtractor={(item) => item._id}
+          />
+        </View>
+        <View>
+          <Text
+            style={{
+              color: "#fff",
+              fontSize: 24,
+              fontWeight: "700",
               marginTop: 7,
             }}
           >
@@ -59,28 +81,8 @@ function HomeScreen() {
           <Text
             style={{
               color: "#fff",
-              fontSize: 22,
-              fontWeight: 700,
-              marginTop: 7,
-            }}
-          >
-            Try something else
-          </Text>
-          <FlatList
-            horizontal={true}
-            style={{ marginTop: 10 }}
-            showsHorizontalScrollIndicator={false}
-            data={song}
-            renderItem={({ item }) => <Music music={item} />}
-            keyExtractor={(item) => item._id}
-          />
-        </View>
-        <View>
-          <Text
-            style={{
-              color: "#fff",
-              fontSize: 22,
-              fontWeight: 700,
+              fontSize: 24,
+              fontWeight: "700",
               marginTop: 7,
             }}
           >
@@ -114,6 +116,7 @@ const styles = StyleSheet.create({
     gap: 10,
     alignItems: "center",
     paddingVertical: 8,
+    marginTop: 20
   },
   label: {
     display: "flex",
