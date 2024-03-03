@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const ApiUrl = "http://localhost:8080";
+export const ApiUrl = "https://serverkurdsong.liara.run/";
 
 async function resolve(promise) {
   const resolved = {

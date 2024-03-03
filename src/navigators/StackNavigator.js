@@ -9,7 +9,6 @@ function StackNavigator() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Home" component={TabNavigator} />
-      <Stack.Screen name="Login" component={HomeScreen} />
     </Stack.Navigator>
   );
 }

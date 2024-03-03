@@ -1,25 +1,102 @@
-import React from "react";
-import { View, StyleSheet, Text } from "react-native";
+import React, { useEffect, useCallback, useState } from "react";
+import {
+  View,
+  StyleSheet,
+  Text,
+  FlatList,
+  SafeAreaView,
+  ScrollView,
+} from "react-native";
+import { getSongAll } from "../config/API";
+import Music from "../components/posts/Music";
+import Topbar from "../components/home/Topbar";
 
 function HomeScreen() {
-  return (
-    <View style={styles.container}>
-      <View style={styles.label}>
-        <View>
-          <Text style={styles.remember}>Remember</Text>
-          <Text style={styles.remember}>Last music</Text>
-        </View>
-        <View style={styles.buttonContainer}>
-          <Text style={styles.button}>Random</Text>
-          <Text style={styles.button}>Loop</Text>
-          <Text style={styles.button}>More</Text>
-        </View>
-      </View>
-      <View style={styles.postContainer}>
+  const [song, setSong] = useState([]);
 
-      </View>
-      <Text style={{ color: "black" }}>amir hello hhjghg</Text>
-    </View>
+  const getSong = useCallback(async () => {
+    const songData = await getSongAll();
+    console.log(songData);
+    setSong(songData.data);
+  }, []);
+
+  useEffect(() => {
+    getSong();
+  }, [getSong]);
+  return (
+    <SafeAreaView style={styles.container}>
+      <ScrollView>
+        {/* <Topbar /> */}
+        <View style={styles.labelContainer}>
+          <View style={styles.label}>
+            <Text style={styles.remember}>Remember</Text>
+          </View>
+          <View style={styles.label}>
+            <Text style={styles.remember}>More</Text>
+          </View>
+        </View>
+        <View>
+          <Text
+            style={{
+              color: "#fff",
+              fontSize: 22,
+              fontWeight: 700,
+              marginTop: 7,
+            }}
+          >
+            Try something else
+          </Text>
+          <FlatList
+            horizontal={true}
+            style={{ marginTop: 10 }}
+            showsHorizontalScrollIndicator={false}
+            data={song}
+            renderItem={({ item }) => <Music music={item} />}
+            keyExtractor={(item) => item._id}
+          />
+        </View>
+        <View>
+          <Text
+            style={{
+              color: "#fff",
+              fontSize: 22,
+              fontWeight: 700,
+              marginTop: 7,
+            }}
+          >
+            Try something else
+          </Text>
+          <FlatList
+            horizontal={true}
+            style={{ marginTop: 10 }}
+            showsHorizontalScrollIndicator={false}
+            data={song}
+            renderItem={({ item }) => <Music music={item} />}
+            keyExtractor={(item) => item._id}
+          />
+        </View>
+        <View>
+          <Text
+            style={{
+              color: "#fff",
+              fontSize: 22,
+              fontWeight: 700,
+              marginTop: 7,
+            }}
+          >
+            Try something else
+          </Text>
+          <FlatList
+            horizontal={true}
+            style={{ marginTop: 10 }}
+            showsHorizontalScrollIndicator={false}
+            data={song}
+            renderItem={({ item }) => <Music music={item} />}
+            keyExtractor={(item) => item._id}
+          />
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
@@ -28,12 +105,24 @@ const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 20,
     paddingVertical: 10,
+    backgroundColor: "#000",
+    flex: 1,
+  },
+  labelContainer: {
+    display: "flex",
+    flexDirection: "row",
+    gap: 10,
+    alignItems: "center",
+    paddingVertical: 8,
   },
   label: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-between",
     alignItems: "center",
+    padding: 8,
+    paddingHorizontal: 15,
+    borderRadius: 15,
+    backgroundColor: "#282828",
   },
   remember: {
     color: "#fff",
@@ -49,6 +138,6 @@ const styles = StyleSheet.create({
   },
   postContainer: {
     display: "flex",
-    
-  }
+    flexDirection: "row",
+  },
 });

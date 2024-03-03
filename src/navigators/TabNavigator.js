@@ -8,6 +8,7 @@ import {
   MaterialIcons,
 } from "@expo/vector-icons";
 import HomeScreen from "../screen/HomeScreen";
+import Topbar from "../components/home/Topbar";
 
 function TabNavigator() {
   const Tab = createBottomTabNavigator();
@@ -61,7 +62,7 @@ function TabNavigator() {
     />
     <Tab.Screen
       name="profile"
-      component={LoginScreen}
+      component={HomeScreen}
       options={{
         tabBarIcon: ({ color, size }) => (
           <Feather name="shopping-bag" size={size} color={color} />
