@@ -15,80 +15,96 @@ function TabNavigator() {
   const Tab = createBottomTabNavigator();
   return (
     <>
-     
-      <Tab.Navigator
-        screenOptions={{
-          headerShown: false,
-          tabBarActiveTintColor: "white",
-          tabBarShowLabel: false,
-          tabBarHideOnKeyboard: true,
-          tabBarStyle: {
+        <View
+          style={{
             display: "flex",
+            width: "100%",
+            justifyContent: "space-between",
+            height: 30,
+            backgroundColor: "red",
             position: "absolute",
-            elevation: 5,
-            backgroundColor: "rgba(0,0,0,0.2)",
-            borderRadius: 0,
-            borderWidth: 0,
-            borderColor: "#000",
-            height: 90,
-          },
-        }}
-      >
-        <Tab.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{
-            tabBarIcon: ({ color, size }) => (
-              <View style={{ borderWidth: 0 }}>
-                <Entypo name="home" size={size} color={color} />
-              </View>
-            ),
+            bottom: 80,
+            left: 0,
+            zIndex: 999999,
           }}
-        />
-        <Tab.Screen
-          name="Search"
-          component={HomeScreen}
-          options={{
-            tabBarIcon: ({ color, size }) => (
-              <FontAwesome name="search" size={size} color={color} />
-            ),
+        >
+          <Text>amir</Text>
+          <Text>amir</Text>
+        </View>
+        <Tab.Navigator
+          screenOptions={{
+            headerShown: false,
+            tabBarActiveTintColor: "white",
+            tabBarShowLabel: false,
+            tabBarHideOnKeyboard: true,
+            tabBarStyle: {
+              display: "flex",
+              position: "absolute",
+              elevation: 5,
+              backgroundColor: "rgba(0,0,0,0.6)",
+              borderRadius: 0,
+              borderWidth: 0,
+              borderColor: "#000",
+              flexDirection: "column",
+              height: 80,
+            },
           }}
-        />
-        <Tab.Screen
-          name="Singel"
-          component={SingelScreen}
-          options={{
-            tabBarIcon: ({ color, size }) => (
-              <MaterialIcons
-                name="video-collection"
-                size={size}
-                color={color}
-              />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="Shopping"
-          component={HomeScreen}
-          options={{
-            tabBarIcon: ({ color, size }) => (
-              <Feather name="shopping-bag" size={size} color={color} />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="profile"
-          component={HomeScreen}
-          options={{
-            tabBarIcon: ({ color, size }) => (
-              <View>
+        >
+          <Tab.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{
+              tabBarIcon: ({ color, size }) => (
+                <View style={{ borderWidth: 0 }}>
+                  <Entypo name="home" size={size} color={color} />
+                </View>
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="Search"
+            component={HomeScreen}
+            options={{
+              tabBarIcon: ({ color, size }) => (
+                <FontAwesome name="search" size={size} color={color} />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="Singl"
+            component={HomeScreen}
+            options={{
+              tabBarIcon: ({ color, size }) => (
+                <MaterialIcons
+                  name="video-collection"
+                  size={size}
+                  color={color}
+                />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="Shopping"
+            component={HomeScreen}
+            options={{
+              tabBarIcon: ({ color, size }) => (
                 <Feather name="shopping-bag" size={size} color={color} />
-                <Text style={{ color: color }}>Home</Text>
-              </View>
-            ),
-          }}
-        />
-      </Tab.Navigator>
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="profile"
+            component={HomeScreen}
+            options={{
+              tabBarIcon: ({ color, size }) => (
+                <View>
+                  <Feather name="shopping-bag" size={size} color={color} />
+                  <Text style={{ color: color }}>Home</Text>
+                </View>
+              ),
+            }}
+          />
+        </Tab.Navigator>
     </>
   );
 }

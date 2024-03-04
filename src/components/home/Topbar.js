@@ -6,12 +6,14 @@ import {
     Feather,
     MaterialIcons,
   } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/core";
 
 function Topbar() {
+  const navigation = useNavigation()
   return (
     <View style={styles.container}>
       <View>
-        <Text style={styles.logo}>KurdiSong</Text>
+        <Text style={styles.logo} onPress={() => navigation.navigate('Single')}>KurdiSong</Text>
       </View>
       <View style={styles.search}>
         <Text> <FontAwesome name="search" size={20} color={"#fff"} /></Text>

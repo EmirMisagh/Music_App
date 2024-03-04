@@ -46,7 +46,7 @@ function HomeScreen() {
               marginTop: 20,
             }}
           >
-            Try something else {message}
+            Try something else 
           </Text>
           <FlatList
             horizontal={true}

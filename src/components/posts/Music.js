@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, Image } from "react-native";
 import React from "react";
 
 const Music = ({ music }) => {
-  console.log(music);
+ 
   return (
     <View style={styles.container}>
       <View>
@@ -19,7 +19,7 @@ const Music = ({ music }) => {
       </View>
       <View>
         <Text style={styles.title}>{music.name}</Text>
-        <Text style={{ color: "#fff" }}>{music.name}</Text>
+        <Text style={{ color: "#bababa" }}>{music.singer}</Text>
       </View>
     </View>
   );
