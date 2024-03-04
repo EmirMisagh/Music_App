@@ -10,27 +10,14 @@ import {
 import HomeScreen from "../screen/HomeScreen";
 import Topbar from "../components/home/Topbar";
 import SingelScreen from "../screen/SingelScreen";
+import MusicPlayer from "../components/MusicPlayer"
+
 
 function TabNavigator() {
   const Tab = createBottomTabNavigator();
   return (
     <>
-        <View
-          style={{
-            display: "flex",
-            width: "100%",
-            justifyContent: "space-between",
-            height: 30,
-            backgroundColor: "red",
-            position: "absolute",
-            bottom: 80,
-            left: 0,
-            zIndex: 999999,
-          }}
-        >
-          <Text>amir</Text>
-          <Text>amir</Text>
-        </View>
+      <MusicPlayer />
         <Tab.Navigator
           screenOptions={{
             headerShown: false,
