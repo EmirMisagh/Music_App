@@ -42,13 +42,13 @@ export default MusicPlayer;
 const styles = StyleSheet.create({
   container: {
     display: "flex",
-    width: "100%",
+    width: "96%",
     justifyContent: "space-between",
     backgroundColor: "#454547",
     position: "absolute",
     borderRadius: 9,
     bottom: 80,
-    left: 0,
+    left: 7,
     zIndex: 999999,
     flexDirection: "row",
     padding: 6,

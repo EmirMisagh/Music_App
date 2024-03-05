@@ -1,4 +1,5 @@
 import React, { useEffect, useCallback, useState } from "react";
+import { StatusBar } from "expo-status-bar";
 import {
   View,
   StyleSheet,
@@ -11,10 +12,9 @@ import { getSongAll } from "../config/API";
 import Music from "../components/posts/Music";
 import Topbar from "../components/home/Topbar";
 
-
 function HomeScreen() {
   const [song, setSong] = useState([]);
-  const [message, setMessage] = useState('amir');
+  const [message, setMessage] = useState("amir");
 
   const getSong = useCallback(async () => {
     const songData = await getSongAll();
@@ -27,7 +27,7 @@ function HomeScreen() {
   }, [getSong]);
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView>
+      <ScrollView  showsVerticalScrollIndicator={false}>
         <Topbar />
         <View style={styles.labelContainer}>
           <View style={styles.label}>
@@ -46,7 +46,7 @@ function HomeScreen() {
               marginTop: 20,
             }}
           >
-            Try something else 
+            Try something else
           </Text>
           <FlatList
             horizontal={true}
@@ -98,6 +98,7 @@ function HomeScreen() {
           />
         </View>
       </ScrollView>
+      <StatusBar style="light" backgroundColor="black" animated={true} />
     </SafeAreaView>
   );
 }
@@ -115,8 +116,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     gap: 10,
     alignItems: "center",
-    paddingVertical: 8,
-    marginTop: 20
+    paddingVertical: 11,
+    marginTop: 20,
   },
   label: {
     display: "flex",

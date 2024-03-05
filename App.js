@@ -8,7 +8,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <StackNavigator />
-      <StatusBar style="light" animated={true} />
+      <StatusBar style="light" backgroundColor="black" animated={true} />
     </NavigationContainer>
   );
 }

@@ -9,8 +9,8 @@ const Music = ({ music }) => {
         <Image
           source={{ uri: music.image }}
           style={{
-            width: 157,
-            height: 160,
+            width: 153,
+            height: 150,
             objectFit: "cover",
             borderWidth: 1,
             borderColor: "rgba(255,255,255,0.3)",
